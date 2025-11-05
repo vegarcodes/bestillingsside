@@ -11,7 +11,11 @@
   --text-font-family: "Commissioner", sans-serif;
   --site-background-color: #99582a;
   --main-background-color: #f2e9e4;
-  --text-color: hsl(from var(--site-background-color) h s 15%);
+  --text-color: #3c2310;
+  --button-background-color: #824a22;
+  --button-hover-color: #99582a;
+  --button-active-color: #3c2310;
+  --button-text-color: #f2e9e4;
 }
 
 h1,
@@ -30,6 +34,11 @@ button,
 input,
 textarea {
   font-family: inherit;
+}
+
+:focus {
+  outline: 2px solid blue;
+  z-index: 2;
 }
 
 html {
@@ -63,7 +72,7 @@ body {
   text-wrap: balance;
   text-shadow:
     1px 1px 0 var(--main-background-color),
-    2px 2px 0 rgb(from var(--text-color) r g b / 33%);
+    2px 2px 0 rgb(0 0 0 / 30%);
 }
 
 .product-list {
@@ -105,21 +114,20 @@ body {
   gap: 0;
 
   button {
-    background-color: var(--site-background-color);
-    color: var(--main-background-color);
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
     border: 0;
-    margin: 0;
     font-size: 1.33rem;
     line-height: 1;
     padding: 0.2rem;
     font-family: monospace;
 
     &:hover {
-      background-color: hsl(from var(--site-background-color) h s 45%);
+      background-color: var(--button-hover-color);
     }
 
     &:active {
-      background-color: hsl(from var(--site-background-color) h s 25%);
+      background-color: var(--button-active-color);
     }
 
     &:first-child {
@@ -162,24 +170,19 @@ body {
 }
 
 .submit-order {
-  border: 2px solid var(--site-background-color);
+  border: 0;
   font-size: 1.33rem;
   padding: 0.5em 1.5em;
   border-radius: 5em;
-  background-color: var(--site-background-color);
-  background-image: linear-gradient(
-    to bottom,
-    var(--site-background-color),
-    hsl(from var(--site-background-color) h s 40%)
-  );
-  color: var(--main-background-color);
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
 
   &:hover {
-    background-image: linear-gradient(
-      to bottom,
-      var(--site-background-color),
-      hsl(from var(--site-background-color) h s 45%)
-    );
+    background-color: var(--button-hover-color);
+  }
+
+  &:active {
+    background-color: var(--button-active-color);
   }
 }
 
@@ -190,21 +193,6 @@ body {
   border-radius: 1rem;
   border: 0;
   padding: 3rem 2rem;
-  transform: translateY(2rem);
-  transition: 
-    opacity ease-out 300ms,
-    transform ease-out 300ms;
-  opacity: 0;
-
-  &[open] {
-    opacity: 1;
-    transform: translateY(0);
-    
-    @starting-style {
-      opacity: 0;
-      transform: translateY(2rem);
-    }
-  }
 
   &::backdrop {
     background-color: rgb(32 32 32 / 80%);
