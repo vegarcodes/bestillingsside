@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Momo+Signature&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --title-font-family: "Momo Signature", sans-serif;
+  --text-font-family: "Commissioner", sans-serif;
+  --site-background-color: #99582a;
+  --main-background-color: #f2e9e4;
+  --text-color: hsl(from var(--site-background-color) h s 15%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+html {
+  font-family: var(--text-font-family);
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+body {
+  background-color: var(--site-background-color);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40' width='80' height='40'%3E%3Cpath fill='%23814114' fill-opacity='0.5' d='M0 40a19.96 19.96 0 0 1 5.9-14.11 20.17 20.17 0 0 1 19.44-5.2A20 20 0 0 1 20.2 40H0zM65.32.75A20.02 20.02 0 0 1 40.8 25.26 20.02 20.02 0 0 1 65.32.76zM.07 0h20.1l-.08.07A20.02 20.02 0 0 1 .75 5.25 20.08 20.08 0 0 1 .07 0zm1.94 40h2.53l4.26-4.24v-9.78A17.96 17.96 0 0 0 2 40zm5.38 0h9.8a17.98 17.98 0 0 0 6.67-16.42L7.4 40zm3.43-15.42v9.17l11.62-11.59c-3.97-.5-8.08.3-11.62 2.42zm32.86-.78A18 18 0 0 0 63.85 3.63L43.68 23.8zm7.2-19.17v9.15L62.43 2.22c-3.96-.5-8.05.3-11.57 2.4zm-3.49 2.72c-4.1 4.1-5.81 9.69-5.13 15.03l6.61-6.6V6.02c-.51.41-1 .85-1.48 1.33zM17.18 0H7.42L3.64 3.78A18 18 0 0 0 17.18 0zM2.08 0c-.01.8.04 1.58.14 2.37L4.59 0H2.07z'%3E%3C/path%3E%3C/svg%3E");
+  color: var(--text-color);
+}
+
+.container {
+  inline-size: min(70ch, 100%);
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: var(--main-background-color);
+  border-radius: 1rem;
+
+  & > * + * {
+    margin-block-start: 3rem;
+  }
+}
+
+.page-title {
+  font-family: var(--title-font-family);
+  text-align: center;
+  font-weight: 600;
+  text-wrap: balance;
+  text-shadow:
+    1px 1px 0 var(--main-background-color),
+    2px 2px 0 rgb(from var(--text-color) r g b / 33%);
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+
+  & > li + li {
+    border-top: 1px dashed rgb(0 0 0 / 20%);
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 8rem 1fr 5rem;
+    gap: 1.5rem;
+    padding-block: 2rem;
+    align-items: center;
+  }
+}
+
+.product-photo {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.product-details {
+  & > * + * {
+    margin-block-start: 0.66em;
+  }
+  h2 {
+    line-height: 1.1;
+  }
+}
+
+.product-quantity-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+
+  button {
+    background-color: var(--site-background-color);
+    color: var(--main-background-color);
+    border: 0;
+    margin: 0;
+    font-size: 1.33rem;
+    line-height: 1;
+    padding: 0.2rem;
+    font-family: monospace;
+
+    &:hover {
+      background-color: hsl(from var(--site-background-color) h s 45%);
+    }
+
+    &:active {
+      background-color: hsl(from var(--site-background-color) h s 25%);
+    }
+
+    &:first-child {
+      border-top-left-radius: 5rem;
+      border-bottom-left-radius: 5rem;
+    }
+
+    &:last-child {
+      border-top-right-radius: 5rem;
+      border-bottom-right-radius: 5rem;
+    }
+  }
+}
+
+.product-current-quantity {
+  font-size: 1.5rem;
+  text-align: center;
+  display: block;
+  margin-block-end: 0.5rem;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.order-total {
+  padding-block: 2rem;
+  border-top: 5px double var(--site-background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-total-sum {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.submit-order {
+  border: 2px solid var(--site-background-color);
+  font-size: 1.33rem;
+  padding: 0.5em 1.5em;
+  border-radius: 5em;
+  background-color: var(--site-background-color);
+  background-image: linear-gradient(
+    to bottom,
+    var(--site-background-color),
+    hsl(from var(--site-background-color) h s 40%)
+  );
+  color: var(--main-background-color);
+
+  &:hover {
+    background-image: linear-gradient(
+      to bottom,
+      var(--site-background-color),
+      hsl(from var(--site-background-color) h s 45%)
+    );
+  }
+}
+
+.order-confirmation-dialog {
+  inline-size: min(50ch, 100%);
+  font-size: 1.33rem;
+  box-shadow: 0 1.5rem 2.5rem rgb(0 0 0 / 20%);
+  border-radius: 1rem;
+  border: 0;
+  padding: 3rem 2rem;
+  transform: translateY(2rem);
+  transition: 
+    opacity ease-out 300ms,
+    transform ease-out 300ms;
+  opacity: 0;
+
+  &[open] {
+    opacity: 1;
+    transform: translateY(0);
+    
+    @starting-style {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+  }
+
+  &::backdrop {
+    background-color: rgb(32 32 32 / 80%);
+    backdrop-filter: blur(0.5rem);
+  }
+
+  h2 {
+    font-family: var(--title-font-family);
+  }
+
+  & > * + * {
+    margin-block-start: 1em;
+  }
+}

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Quantum Café | Bestill</title>
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="page-title">Hva kan vi servere deg?</h1>
+      
+      <ul class="product-list">
+        <li>
+          <img src="assets/images/iskaffe.jpg" alt="Vår iskaffe er sterk og nylaget, og er en utmerket start på din morgen." class="product-photo" height="427" width="640">
+          <div class="product-details">
+            <h2>Iskaffe</h2>
+            <p>
+              Vår iskaffe er sterk og nylaget, og er en utmerket start på din morgen.
+            </p>
+            <p class="product-price" id="iced-coffee-price">59,-</p>
+          </div>
+          <div class="product-quantity">
+            <span class="product-current-quantity" id="iced-coffee-quantity">0</span>
+            <div class="product-quantity-buttons">
+              <button type="button" class="reduce-button" aria-label="Trekk fra en iskaffe." id="subtract-iced-coffee">-</button>
+              <button type="button" class="increase-button" aria-label="Legg til en iskaffe." id="add-iced-coffee">+</button>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <img src="assets/images/te.jpg" alt="Vår nybryggede, varme te er full av god smak. Hør med vår betjening om hvilke smaker vi har!" class="product-photo" height="427" width="640">
+          <div class="product-details">
+            <h2>Te</h2>
+            <p>
+              Vår nybryggede, varme te er full av god smak. Hør med vår betjening om hvilke smaker vi har!
+            </p>
+            <p class="product-price" id="tea-price">39,-</p>
+          </div>
+          <div class="product-quantity">
+            <span class="product-current-quantity" id="tea-quantity">0</span>
+            <div class="product-quantity-buttons">
+              <button type="button" class="reduce-button" aria-label="Trekk fra en kopp te." id="subtract-tea">-</button>
+              <button type="button" class="increase-button" aria-label="Legg til en kopp te" id="add-tea">+</button>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <img src="assets/images/cupcake.jpg" alt="Våre syndige og populære cupcakes bringer glede til alle våre gjester!" class="product-photo" height="427" width="640">
+          <div class="product-details">
+            <h2>Cupcakes</h2>
+            <p>
+              Våre syndige og populære cupcakes bringer glede til alle våre gjester!
+            </p>
+            <p class="product-price" id="cupcake-price">49,-</p>
+          </div>
+          <div class="product-quantity">
+            <span class="product-current-quantity" id="cupcake-quantity">0</span>
+            <div class="product-quantity-buttons">
+              <button type="button" class="reduce-button" aria-label="Trekk fra en cupcake." id="subtract-cupcake">-</button>
+              <button type="button" class="increase-button" aria-label="Legg til en cupcake." id="add-cupcake">+</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="order-total">
+        <p>
+          <span class="order-total-eyebrow">Å betale:</span>
+          <span class="order-total-sum" id="total-amount-to-pay">0,-</span>
+        </p>
+
+        <button class="submit-order" id="submit-button" type="button" command="show-modal" commandfor="order-confirmation">
+          Bestill!
+        </button>
+      </div>
+    </main>
+
+    <dialog id="order-confirmation" class="order-confirmation-dialog" closedby="any">
+      <h2>Takk for bestillingen!</h2>
+      <p>
+        Vi kommer til ditt bord med bestillingen så snart den er klar. Ditt betalingskort er belastet med <span id="total-amount-paid">0,-</span> i dag.
+      </p>
+      <p>
+        <strong>Nyt øyeblikket!</strong>
+      </p>
+    </dialog>
+    
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
